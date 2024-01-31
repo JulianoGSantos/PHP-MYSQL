@@ -14,7 +14,7 @@
                 <h5 class="card-title">Modelo simplificado de cadstro web com PHP e MYSQL.</h5>
                 <p class="card-text">Escolha uma das funções abaixo</p>
                 <a href="cadastro.php" class="btn btn-primary">Cadastrar</a>
-                <a href="cadastro.php" class="btn btn-primary">Pesquisar</a>
+                <a href="pesquisa.php" class="btn btn-primary">Pesquisar</a>
             </div>
         </div>
     </div>
