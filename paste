@@ -1,0 +1,4 @@
+$sql = "SELECT * FROM pessoas WHERE nome LIKE :%busca%;";
+        $res = $pdo->prepare($sql);
+        $res->execute(['busca' => $busca]);
+        $members = $res->fetch();
