@@ -1,3 +1,12 @@
+<?php
+        include("database-connection.php");
+        $busca = $_POST['busca'];
+
+        $sql = "SELECT * FROM pessoas WHERE nome LIKE '%$busca%'";
+        $statement = $pdo->query($sql);
+        $clientes = $statement->fetchAll();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -16,21 +25,16 @@
             </form>
         </div>
     </nav>
-    <?php
-        include("database-connection.php");
-        $busca = $_POST['busca'];
-
-        $sql = "SELECT nome, endereco, telefone, email, data_nascimento FROM pessoas cod_pessoas = :id;";
-        $statement = $pdo->prepare($sql);
-        $statement->execute(['cod_pessoa'=>$cod_pessoa]);
-        $pessoas = $statement->fetch();        
-        if(!$pessoas){
-            include 'page-not-found.php';
-        }
-
-        var_dump($pessoas);
-
-    ?>
-
+    <?php foreach($clientes as $cliente){ ?>
+        <table border="2">
+            <tr><td><?= htmlspecialchars($cliente['cod_pessoa']) ?></td>
+            <td><?= htmlspecialchars($cliente['nome']) ?></td>
+            <td><?= htmlspecialchars($cliente['endereco']) ?></td>
+            <td><?= htmlspecialchars($cliente['telefone']) ?></td>
+            <td><?= htmlspecialchars($cliente['email']) ?></td>
+            <td><?= htmlspecialchars($cliente['data_nascimento']) ?></td></tr>
+        </table>
+        
+    <?php } ?>
 </body>
 </html>
