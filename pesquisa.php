@@ -25,16 +25,35 @@
             </form>
         </div>
     </nav>
-    <?php foreach($clientes as $cliente){ ?>
-        <table border="2">
-            <tr><td><?= htmlspecialchars($cliente['cod_pessoa']) ?></td>
-            <td><?= htmlspecialchars($cliente['nome']) ?></td>
-            <td><?= htmlspecialchars($cliente['endereco']) ?></td>
-            <td><?= htmlspecialchars($cliente['telefone']) ?></td>
-            <td><?= htmlspecialchars($cliente['email']) ?></td>
-            <td><?= htmlspecialchars($cliente['data_nascimento']) ?></td></tr>
+        <table class="table table-dark table-hover">   
+            <thead>
+                <tr>
+                <th scope="col">Cód</th>    
+                <th scope="col">Nome</th>
+                <th scope="col">Endereço</th>
+                <th scope="col">Telefone</th>
+                <th scope="col">Email</th>
+                <th scope="col">Data de Nascimento</th>
+                <th scope="col">Ações</th>
+                </tr>
+            </thead>
+            </div>
+            <tbody>
+                <?php foreach($clientes as $cliente){ ?>
+                <tr>
+                    <td scope="col"><?= htmlspecialchars($cliente['cod_pessoa'])?></td>    
+                    <td scope="col"><?= htmlspecialchars($cliente['nome'])?></td>
+                    <td scope="col"><?= htmlspecialchars($cliente['endereco'])?></td>
+                    <td scope="col"><?= htmlspecialchars($cliente['telefone'])?></td>
+                    <td scope="col"><?= htmlspecialchars($cliente['email'])?></td>
+                    <td scope="col"><?= htmlspecialchars($cliente['data_nascimento'])?></td>
+                    <td scope="col"><a href="#" class="p-4"><img src="/img/pen.png" alt="editar" width="20px"></a><a href="#"><img src="/img/trash.png" alt="deletar" width="20px"></a></td>
+                </tr>
+                <?php } ?>
+            </tbody>
         </table>
-        
-    <?php } ?>
+    <div class="form-group mt-2 mb-2 p-2">
+        <a href="index.php" class="btn btn-info">ir para o início</a>
+    </div>
 </body>
 </html>

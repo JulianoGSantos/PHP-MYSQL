@@ -2,3 +2,15 @@ $sql = "SELECT * FROM pessoas WHERE nome LIKE :%busca%;";
         $res = $pdo->prepare($sql);
         $res->execute(['busca' => $busca]);
         $members = $res->fetch();
+
+        <?php foreach($clientes as $cliente){ ?>
+        <table border="2">
+            <tr><td><?= htmlspecialchars($cliente['cod_pessoa']) ?></td>
+            <td><?= htmlspecialchars($cliente['nome']) ?></td>
+            <td><?= htmlspecialchars($cliente['endereco']) ?></td>
+            <td><?= htmlspecialchars($cliente['telefone']) ?></td>
+            <td><?= htmlspecialchars($cliente['email']) ?></td>
+            <td><?= htmlspecialchars($cliente['data_nascimento']) ?></td></tr>
+        </table>
+        
+    <?php } ?>
