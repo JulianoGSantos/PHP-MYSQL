@@ -3,9 +3,17 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Cadastro</title>
+    <title>Edi</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
   </head>
+  <?php
+    include('database-connection.php');
+    $nome = $_POST['nome'];
+    $endereco = $_POST['endereco'];
+    $telefone = $_POST['telefone'];
+    $email = $_POST['email'];
+    $data_nascimento = $_POST['data_nascimento'];
+  ?>
   <body>
     <div class="container">
         <div class="row">
@@ -14,26 +22,26 @@
                 <form action="cadastro_script.php" method="post">
                     <div class="form-group mt-2">
                         <label for="nome">Nome Completo</label>
-                        <input type="text" name="nome" class="form-control" autofocus>
+                        <input type="text" name="nome" class="form-control" value="<?=htmlspecialchars($cliente['nome'])?>">
                     </div>
                     <div class="form-group mt-2">
                     <label for="endereco">Endereço</label>
-                        <input type="text" name="endereco" class="form-control">
+                        <input type="text" name="endereco" class="form-control" value="$endereco">
                     </div>
                     <div class="form-group mt-2">
                     <label for="telefone">Telefone</label>
-                        <input type="text" name="telefone" class="form-control">
+                        <input type="text" name="telefone" class="form-control" value="$telefone">
                     </div>
                     <div class="form-group mt-2">
                     <label for="email">Email</label>
-                        <input type="email" name="email" class="form-control">
+                        <input type="email" name="email" class="form-control" value="$email">
                     </div>
                     <div class="form-group mt-2">
                     <label for="data_nascimento">Data de Nascimento</label>
-                        <input type="date" name="data_nascimento" class="form-control">
+                        <input type="date" name="data_nascimento" class="form-control" value="$data_nascimento">
                     </div>
                     <div class="form-group mt-2">
-                        <input type="submit" class="btn btn-primary">
+                        <input type="submit" class="btn btn-primary" value="salvar alterações">
                     </div>
                     <div class="form-group mt-2">
                         <a href="index.php" class="btn btn-info">ir para o início</a>

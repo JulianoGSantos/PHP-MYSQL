@@ -28,9 +28,12 @@
                     }
 
                 ?>
-                <div class="row g-6 justify-content-center mt-5">
-                    <div class="col-2 p-1">
+                <div class="row g-4 justify-content-center mt-5">
+                    <div class="col-1 p-1">
                         <a href="javascript:history.back(-1)" class="btn btn-primary">voltar</a>
+                    </div>
+                    <div class="col-3 p-1">
+                    <a href="index.php" class="btn btn-info">ir para o início</a>
                     </div>
                 </div>
             </div>

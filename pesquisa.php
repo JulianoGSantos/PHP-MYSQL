@@ -5,6 +5,7 @@
         $sql = "SELECT * FROM pessoas WHERE nome LIKE '%$busca%'";
         $statement = $pdo->query($sql);
         $clientes = $statement->fetchAll();
+
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +21,7 @@
         <div class="container-fluid">
             <a class="navbar-brand">Pesquisar</a>
             <form class="d-flex" action="pesquisa.php" method="post" role="search">
-            <input class="form-control me-2" name="busca" type="search" placeholder="Nome" aria-label="busca">
+            <input class="form-control me-2" name="busca" type="search" placeholder="Nome" aria-label="busca" autofocus>
             <button class="btn btn-outline-success" type="submit">Pesquisar</button>
             </form>
         </div>
@@ -46,8 +47,8 @@
                     <td scope="col"><?= htmlspecialchars($cliente['endereco'])?></td>
                     <td scope="col"><?= htmlspecialchars($cliente['telefone'])?></td>
                     <td scope="col"><?= htmlspecialchars($cliente['email'])?></td>
-                    <td scope="col"><?= htmlspecialchars($cliente['data_nascimento'])?></td>
-                    <td scope="col"><a href="#" class="p-4"><img src="/img/pen.png" alt="editar" width="20px"></a><a href="#"><img src="/img/trash.png" alt="deletar" width="20px"></a></td>
+                    <td scope="col"><?= htmlspecialchars(date('d-m-Y', strtotime($cliente['data_nascimento'])))?></td>
+                    <td scope="col"><a href="edicao.php?id=($cliente['cod_pessoa'])" class="p-4"><img src="/img/pen.png" alt="editar" width="20px"></a><a href="#"><img src="/img/trash.png" alt="deletar" width="20px"></a></td>
                 </tr>
                 <?php } ?>
             </tbody>
