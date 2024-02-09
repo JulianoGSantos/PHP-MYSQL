@@ -3,26 +3,25 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Edi</title>
+    <title>Edição</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
   </head>
   <?php
     include('database-connection.php');
-    $nome = $_POST['nome'];
-    $endereco = $_POST['endereco'];
-    $telefone = $_POST['telefone'];
-    $email = $_POST['email'];
-    $data_nascimento = $_POST['data_nascimento'];
+
+    $sql = "SELECT * FROM pessoas WHERE cod_pessoa = $cod_pessoa";
+    
+    
   ?>
   <body>
     <div class="container">
         <div class="row">
             <div class="col">
                 <h1>Cadastro</h1>
-                <form action="cadastro_script.php" method="post">
+                <form action="edicao_script.php" method="post">
                     <div class="form-group mt-2">
                         <label for="nome">Nome Completo</label>
-                        <input type="text" name="nome" class="form-control" value="<?=htmlspecialchars($cliente['nome'])?>">
+                        <input type="text" name="nome" class="form-control" value="<?=$_POST['nome']?>">
                     </div>
                     <div class="form-group mt-2">
                     <label for="endereco">Endereço</label>

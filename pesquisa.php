@@ -48,7 +48,7 @@
                     <td scope="col"><?= htmlspecialchars($cliente['telefone'])?></td>
                     <td scope="col"><?= htmlspecialchars($cliente['email'])?></td>
                     <td scope="col"><?= htmlspecialchars(date('d-m-Y', strtotime($cliente['data_nascimento'])))?></td>
-                    <td scope="col"><a href="edicao.php?id=($cliente['cod_pessoa'])" class="p-4"><img src="/img/pen.png" alt="editar" width="20px"></a><a href="#"><img src="/img/trash.png" alt="deletar" width="20px"></a></td>
+                    <td scope="col"><a href="edicao.php?cod_pessoa=<?=$cliente['cod_pessoa']?>" class="p-4"><img src="/img/pen.png" alt="editar" width="20px"></a><a href="#"><img src="/img/trash.png" alt="deletar" width="20px"></a></td>
                 </tr>
                 <?php } ?>
             </tbody>

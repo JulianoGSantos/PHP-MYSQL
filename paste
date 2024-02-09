@@ -14,3 +14,9 @@ $sql = "SELECT * FROM pessoas WHERE nome LIKE :%busca%;";
         </table>
         
     <?php } ?>
+
+    if ($res == true) {
+        echo "<script>alert('Alterações salvas com sucesso')</script>";
+    } else {
+        echo "<script>alert('Não foram possíveis as alterações')</script>";
+    }
