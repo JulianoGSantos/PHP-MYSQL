@@ -1,15 +1,17 @@
 <?php
-    include('database-connection.php');
-    include('functions.php');
-    $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
-    $pessoas = [
-        'id' => $id,
-        'nome' => '',
-        'endereco' => '',
-        'telefone' => '',
-        'email' => '',
-        'data_nascimento' => '',
-    ];
+session_start();
+include('database-connection.php');
+include('functions.php');
+
+$id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+$pessoas = [
+    'id' =>$id,
+    'nome' =>$nome,
+    'endereco' =>$endereco,
+    'telefone' =>$telefone,
+    'email' =>$email,
+    'data_nascimento' =>$data_nascimento,
+];
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $pessoas['nome'] = $_POST['nome'];
@@ -20,16 +22,19 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     $arguments = $pessoas;
     if($id){
-        $sql = "UPDATE pessoas
-                SET nome = :nome, endereco = :endereco, telefone = :telefone, email = :email, data_nascimento = :data_nascimento
-                WHERE id = :id;";
+        $sql = "UPDATE pessoas SET nome=:nome, endereco=:endereco, telefone=:telefone, email=:email, data_nascimento=:data_nascimento WHERE cod_pessoa=:id;";
     }
-    try{
-        pdo($pdo, $sql);
-        echo "<script>alert('Alteração cadastrada com sucesso')</script>";
-        header("Location: pesquisa.php");
+
+    try {
+        pdo($pdo, $sql, $arguments);
+            
+            header('Location: pesquisa.php');
+            exit;
     }catch(PDOException $e){
-        throw $e;
+        
+        header('Location: edicao.php');
+        exit(0);
     }
-}    
+}
+
 ?>

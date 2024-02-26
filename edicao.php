@@ -29,7 +29,6 @@
             <div class="col">
                 <h1>Edição</h1>
                 <form action="edicao_script.php?id=<?= $id ?>" method="post">
-                    <input type="hidden" id="id" value="<?= htmlspecialchars($pessoas['id'])?>">
                     <div class="form-group mt-2">
                         <label for="nome">Nome Completo</label>
                         <input type="text" name="nome" class="form-control" value="<?= htmlspecialchars($pessoas['nome'])?>">
@@ -51,7 +50,7 @@
                         <input type="date" name="data_nascimento" class="form-control" value="<?= htmlspecialchars($pessoas['data_nascimento'])?>">
                     </div>
                     <div class="form-group mt-2">
-                        <input type="submit" class="btn btn-primary" value="salvar alterações">
+                        <input type="submit" name="button" class="btn btn-primary" value="salvar alterações">
                     </div>
                     <div class="form-group mt-2">
                         <a href="index.php" class="btn btn-info">ir para o início</a>
