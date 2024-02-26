@@ -1,5 +1,4 @@
 <?php
-session_start();
 include('database-connection.php');
 include('functions.php');
 
@@ -27,13 +26,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     try {
         pdo($pdo, $sql, $arguments);
-            
+        echo "<script>alert('Alteração cadastrada com sucesso')</script>";
             header('Location: pesquisa.php');
             exit;
     }catch(PDOException $e){
-        
+        echo "<script> Alteração não foi registrada </script>";
         header('Location: edicao.php');
-        exit(0);
+        exit();
     }
 }
 
